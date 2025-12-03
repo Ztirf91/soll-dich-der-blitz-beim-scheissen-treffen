@@ -105,13 +105,18 @@
         .title {
             font-family: 'Creepster', cursive;
             font-size: clamp(1.4rem, 5vw, 4rem);
-            color: var(--thunder-yellow);
+            color: #fff;
             text-shadow: 
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                -3px -3px 0 #000,
+                3px -3px 0 #000,
+                -3px 3px 0 #000,
+                3px 3px 0 #000,
                 0 0 10px var(--thunder-yellow),
-                0 0 20px var(--thunder-yellow),
-                0 0 40px var(--thunder-yellow),
-                0 0 80px rgba(255, 215, 0, 0.5),
-                2px 2px 0 #000;
+                0 0 20px rgba(255, 215, 0, 0.5);
             letter-spacing: 2px;
             animation: titleGlow 3s ease-in-out infinite alternate;
             cursor: pointer;
@@ -127,19 +132,24 @@
 
         @keyframes titleGlow {
             0% {
+                color: #fff;
                 text-shadow: 
+                    -2px -2px 0 #000,
+                    2px -2px 0 #000,
+                    -2px 2px 0 #000,
+                    2px 2px 0 #000,
                     0 0 10px var(--thunder-yellow),
-                    0 0 20px var(--thunder-yellow),
-                    0 0 40px var(--thunder-yellow),
-                    2px 2px 0 #000;
+                    0 0 20px rgba(255, 215, 0, 0.4);
             }
             100% {
+                color: var(--thunder-yellow);
                 text-shadow: 
-                    0 0 20px var(--lightning-white),
-                    0 0 40px var(--thunder-yellow),
-                    0 0 80px var(--thunder-yellow),
-                    0 0 120px rgba(255, 215, 0, 0.8),
-                    2px 2px 0 #000;
+                    -2px -2px 0 #000,
+                    2px -2px 0 #000,
+                    -2px 2px 0 #000,
+                    2px 2px 0 #000,
+                    0 0 15px var(--thunder-yellow),
+                    0 0 30px rgba(255, 215, 0, 0.6);
             }
         }
 
@@ -589,28 +599,70 @@
                 <path d="M26 120 Q20 100 12 92" stroke="#2e8b2e" stroke-width="2" fill="none"/>
                 <path d="M26 120 Q34 96 42 84" stroke="#2e8b2e" stroke-width="2" fill="none"/>
 
-                <!-- Golden Toilet -->
+                <!-- Golden Toilet - More visible and recognizable -->
                 <g id="toilet">
-                    <!-- Tank - GOLD -->
-                    <rect x="115" y="155" width="70" height="55" rx="5" fill="url(#goldGradient)" stroke="#b8860b" stroke-width="2"/>
-                    <!-- Tank lid -->
-                    <rect x="112" y="150" width="76" height="10" rx="3" fill="url(#goldGradient)" stroke="#b8860b" stroke-width="1"/>
-                    <!-- Tank decoration -->
-                    <ellipse cx="150" cy="180" rx="20" ry="15" fill="none" stroke="#fff8dc" stroke-width="2" opacity="0.5"/>
-                    <!-- Flush handle - diamond encrusted -->
-                    <rect x="182" y="170" width="18" height="8" rx="3" fill="#e0e0e0" stroke="#b8860b"/>
-                    <circle cx="195" cy="174" r="3" fill="#00ffff"/>
+                    <!-- Toilet base/pedestal -->
+                    <path d="M115 268 L115 285 Q115 290 120 290 L180 290 Q185 290 185 285 L185 268" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="2"/>
                     
-                    <!-- Bowl - GOLD -->
-                    <ellipse cx="150" cy="240" rx="52" ry="28" fill="url(#goldGradient)" stroke="#b8860b" stroke-width="2"/>
-                    <ellipse cx="150" cy="235" rx="40" ry="18" fill="#4a90d9"/>
+                    <!-- Tank - GOLD with clear shape -->
+                    <rect x="118" y="148" width="64" height="58" rx="5" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="3"/>
+                    <!-- Tank lid - raised -->
+                    <rect x="114" y="140" width="72" height="12" rx="4" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="2"/>
+                    <!-- Tank highlight -->
+                    <rect x="125" y="155" width="50" height="8" rx="3" fill="#fff8dc" opacity="0.4"/>
                     
-                    <!-- Seat - GOLD -->
-                    <ellipse cx="150" cy="218" rx="50" ry="24" fill="none" stroke="url(#goldGradient)" stroke-width="10"/>
-                    <ellipse cx="150" cy="218" rx="50" ry="24" fill="none" stroke="#b8860b" stroke-width="1"/>
+                    <!-- Flush handle - chrome/diamond -->
+                    <rect x="178" y="165" width="22" height="10" rx="4" fill="#c0c0c0" stroke="#8B6914" stroke-width="2"/>
+                    <circle cx="194" cy="170" r="4" fill="#00ffff" stroke="#fff" stroke-width="1"/>
                     
-                    <!-- Toilet base -->
-                    <ellipse cx="150" cy="265" rx="35" ry="10" fill="url(#goldGradient)" stroke="#b8860b"/>
+                    <!-- Bowl outer - clear toilet shape -->
+                    <ellipse cx="150" cy="245" rx="55" ry="32" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="3"/>
+                    
+                    <!-- Bowl inner rim -->
+                    <ellipse cx="150" cy="240" rx="45" ry="24" fill="#1a1a2e" stroke="#8B6914" stroke-width="2"/>
+                    
+                    <!-- Water in bowl -->
+                    <ellipse cx="150" cy="242" rx="38" ry="18" fill="#4a90d9"/>
+                    <ellipse cx="150" cy="240" rx="30" ry="12" fill="#6ab0e8" opacity="0.5"/>
+                    
+                    <!-- Toilet seat - clearly visible -->
+                    <ellipse cx="150" cy="220" rx="52" ry="26" fill="none" stroke="url(#goldGradient)" stroke-width="14"/>
+                    <ellipse cx="150" cy="220" rx="52" ry="26" fill="none" stroke="#8B6914" stroke-width="2"/>
+                    <!-- Seat highlight -->
+                    <ellipse cx="150" cy="215" rx="48" ry="20" fill="none" stroke="#fff8dc" stroke-width="2" opacity="0.3"/>
+                    
+                    <!-- Seat hinge details -->
+                    <circle cx="110" cy="208" r="5" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="1"/>
+                    <circle cx="190" cy="208" r="5" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="1"/>
+                    
+                    <!-- Connection pipe hint -->
+                    <rect x="145" y="200" width="10" height="10" fill="url(#goldGradient)" stroke="#8B6914"/>
+                </g>
+
+                <!-- Toilet Paper Holder with Roll -->
+                <g id="toiletPaperHolder">
+                    <!-- Wall mount bracket -->
+                    <rect x="48" y="195" width="12" height="25" rx="2" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="2"/>
+                    
+                    <!-- Horizontal arm -->
+                    <rect x="45" y="200" width="8" height="8" rx="1" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="1"/>
+                    <rect x="30" y="202" width="25" height="12" rx="2" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="2"/>
+                    
+                    <!-- Toilet paper roll -->
+                    <ellipse cx="32" cy="208" rx="6" ry="12" fill="#f5f5f0" stroke="#ddd" stroke-width="1"/>
+                    <!-- Roll tube (cardboard inside) -->
+                    <ellipse cx="32" cy="208" rx="3" ry="6" fill="#c4a574" stroke="#a08050" stroke-width="0.5"/>
+                    
+                    <!-- Paper hanging down -->
+                    <path d="M26 218 L26 250 Q26 255 30 255 L34 255 Q38 255 38 250 L38 220" 
+                          fill="#f5f5f0" stroke="#e0e0e0" stroke-width="1"/>
+                    <!-- Paper texture lines -->
+                    <line x1="28" y1="225" x2="36" y2="225" stroke="#e8e8e8" stroke-width="0.5"/>
+                    <line x1="28" y1="235" x2="36" y2="235" stroke="#e8e8e8" stroke-width="0.5"/>
+                    <line x1="28" y1="245" x2="36" y2="245" stroke="#e8e8e8" stroke-width="0.5"/>
+                    
+                    <!-- Decorative end cap -->
+                    <circle cx="32" cy="195" r="4" fill="url(#goldGradient)" stroke="#8B6914" stroke-width="1"/>
                 </g>
 
                 <!-- Trump sitting on golden toilet -->
