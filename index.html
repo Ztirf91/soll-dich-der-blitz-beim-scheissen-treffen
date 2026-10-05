@@ -557,9 +557,9 @@
                         <stop offset="100%" style="stop-color:#ebe5d5"/>
                     </linearGradient>
                     <radialGradient id="skinGradient" cx="38%" cy="30%" r="75%">
-                        <stop offset="0%" stop-color="#ffd39a"/>
-                        <stop offset="55%" stop-color="#f3a45f"/>
-                        <stop offset="100%" stop-color="#c96d43"/>
+                        <stop offset="0%" stop-color="#ffd7a3"/>
+                        <stop offset="58%" stop-color="#efa56c"/>
+                        <stop offset="100%" stop-color="#c87955"/>
                     </radialGradient>
                     <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#ffe18a"/>
@@ -731,9 +731,11 @@
                     <rect x="173" y="225" width="15" height="35" fill="url(#skinGradient)" rx="5"/>
                     
                     <!-- Head - orange tinted -->
-                    <circle cx="150" cy="110" r="33" fill="url(#skinGradient)" id="head"/>
-                    <path d="M121 112 Q123 91 142 82 Q132 101 134 119 Q136 132 147 140 Q130 138 124 127Z" fill="#b95f42" opacity="0.22"/>
-                    <ellipse cx="140" cy="92" rx="8" ry="3" fill="#ffe0b0" opacity="0.3"/>
+                    <ellipse cx="119" cy="111" rx="5" ry="9" fill="url(#skinGradient)"/>
+                    <ellipse cx="181" cy="111" rx="5" ry="9" fill="url(#skinGradient)"/>
+                    <path d="M120 101 Q120 82 136 76 Q150 71 164 76 Q180 83 180 101 L177 119 Q174 137 160 143 Q150 147 140 143 Q126 137 123 119Z" fill="url(#skinGradient)" id="head"/>
+                    <path d="M123 110 Q126 96 135 91 M177 110 Q174 96 165 91" fill="none" stroke="#b96b4e" stroke-width="1.5" opacity="0.35"/>
+                    <ellipse cx="140" cy="91" rx="8" ry="2.5" fill="#ffe0b0" opacity="0.3"/>
                     
                     <!-- Neck -->
                     <path d="M140 132 L160 132 L160 150 Q150 157 140 150Z" fill="url(#skinGradient)"/>
@@ -760,51 +762,50 @@
                     
                     <!-- Face - Normal -->
                     <g id="normalFace">
-                        <!-- Eyes - small and squinty -->
-                        <ellipse cx="140" cy="105" rx="7" ry="5" fill="white"/>
-                        <ellipse cx="160" cy="105" rx="7" ry="5" fill="white"/>
-                        <circle cx="140" cy="105" r="2.8" fill="#1d4d8f"/>
-                        <circle cx="160" cy="105" r="2.8" fill="#1d4d8f"/>
+                        <!-- Narrow, hooded eyes and a heavy, furrowed brow -->
+                        <path d="M130 101 Q139 96 148 102 Q140 108 132 105Z" fill="#fff8ec"/>
+                        <path d="M152 102 Q161 96 170 101 L168 105 Q160 108 152 102Z" fill="#fff8ec"/>
+                        <ellipse cx="139" cy="102" rx="2.5" ry="3" fill="#376184"/>
+                        <ellipse cx="161" cy="102" rx="2.5" ry="3" fill="#376184"/>
+                        <circle cx="139" cy="102" r="1.2" fill="#17202b"/>
+                        <circle cx="161" cy="102" r="1.2" fill="#17202b"/>
                         
-                        <!-- Eyebrows - expressive -->
-                        <path d="M131 98 Q139 94 148 99" stroke="#c9a030" stroke-width="3" fill="none"/>
-                        <path d="M152 99 Q160 94 169 98" stroke="#c9a030" stroke-width="3" fill="none"/>
+                        <path d="M129 98 Q138 93 148 99 M152 99 Q162 93 171 98" stroke="#9a713d" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+                        <path d="M148 96 L150 101 L152 96" fill="none" stroke="#c77c53" stroke-width="1" opacity="0.65"/>
                         
-                        <!-- Nose -->
-                        <ellipse cx="150" cy="116" rx="5.5" ry="7.5" fill="#e89a53"/>
+                        <!-- Long, broad nose with a rounded tip -->
+                        <path d="M148 105 Q146 113 143 119 Q143 123 150 124 Q157 123 157 119 Q154 113 152 105" fill="#e49a67"/>
+                        <path d="M144 120 Q150 117 156 120 Q155 125 150 125 Q145 125 144 120Z" fill="#d9875d"/>
+                        <path d="M145 122 Q147 124 149 123 M151 123 Q153 124 155 122" stroke="#a95f49" stroke-width="1" fill="none"/>
                         
-                        <!-- Mouth - pursed lips -->
-                        <ellipse cx="150" cy="128" rx="10.5" ry="4.2" fill="#d77a68"/>
-                        <path d="M142 128 Q150 133 158 128" stroke="#bb5f52" stroke-width="1.3" fill="none"/>
+                        <!-- Tight, pursed mouth -->
+                        <path d="M138 130 Q144 127 149 129 Q151 129 153 129 Q158 127 163 130 Q157 135 150 134 Q143 135 138 130Z" fill="#bb685d"/>
+                        <path d="M140 130 Q150 132 161 130" stroke="#753f3d" stroke-width="1.2" fill="none"/>
+                        <path d="M142 136 Q150 138 158 136" stroke="#c77a5a" stroke-width="1" fill="none" opacity="0.8"/>
                         
-                        <!-- White around eyes -->
-                        <ellipse cx="140" cy="105" rx="10.5" ry="7.5" fill="none" stroke="#ffd0a0" stroke-width="2" opacity="0.45"/>
-                        <ellipse cx="160" cy="105" rx="10.5" ry="7.5" fill="none" stroke="#ffd0a0" stroke-width="2" opacity="0.45"/>
-                        <path d="M132 115 Q136 118 140 117 M160 117 Q164 118 168 115" stroke="#c87950" stroke-width="1" fill="none" opacity="0.65"/>
-                        <path d="M144 121 Q150 123 156 121" stroke="#f6c18d" stroke-width="1" fill="none" opacity="0.8"/>
-                        <circle cx="139" cy="104" r="1" fill="#fff" opacity="0.8"/>
-                        <circle cx="159" cy="104" r="1" fill="#fff" opacity="0.8"/>
+                        <path d="M130 110 Q134 112 137 111 M163 111 Q167 112 170 110" stroke="#bd7655" stroke-width="1" fill="none" opacity="0.7"/>
+                        <path d="M142 126 Q140 129 139 132 M158 126 Q160 129 161 132" stroke="#c57a56" stroke-width="0.8" fill="none" opacity="0.65"/>
+                        <circle cx="138.5" cy="101" r="0.9" fill="#fff" opacity="0.8"/>
+                        <circle cx="160.5" cy="101" r="0.9" fill="#fff" opacity="0.8"/>
                     </g>
                     
                     <!-- Face - Shocked -->
                     <g id="shockedFace" opacity="0">
-                        <!-- Wide eyes -->
-                        <ellipse cx="140" cy="105" rx="9" ry="11" fill="white"/>
-                        <ellipse cx="160" cy="105" rx="9" ry="11" fill="white"/>
-                        <circle cx="140" cy="105" r="4" fill="#5c8ab5"/>
-                        <circle cx="160" cy="105" r="4" fill="#5c8ab5"/>
-                        <circle cx="140" cy="105" r="2" fill="#000"/>
-                        <circle cx="160" cy="105" r="2" fill="#000"/>
+                        <ellipse cx="139" cy="103" rx="6" ry="8" fill="#fff8ec"/>
+                        <ellipse cx="161" cy="103" rx="6" ry="8" fill="#fff8ec"/>
+                        <circle cx="139" cy="103" r="3.3" fill="#376184"/>
+                        <circle cx="161" cy="103" r="3.3" fill="#376184"/>
+                        <circle cx="139" cy="103" r="1.7" fill="#000"/>
+                        <circle cx="161" cy="103" r="1.7" fill="#000"/>
                         
                         <!-- Raised eyebrows -->
-                        <path d="M128 92 Q140 88 150 93" stroke="#c9a030" stroke-width="3" fill="none"/>
-                        <path d="M150 93 Q160 88 172 92" stroke="#c9a030" stroke-width="3" fill="none"/>
+                        <path d="M129 94 Q139 88 149 96 M151 96 Q161 88 171 94" stroke="#9a713d" stroke-width="3" fill="none"/>
                         
                         <!-- Open mouth screaming -->
-                        <ellipse cx="150" cy="128" rx="14" ry="12" fill="#2c1810"/>
-                        <ellipse cx="150" cy="125" rx="10" ry="6" fill="#8b0000"/>
+                        <ellipse cx="150" cy="131" rx="10" ry="8" fill="#2c1810"/>
+                        <ellipse cx="150" cy="129" rx="7" ry="4" fill="#8b0000"/>
                         <!-- Teeth -->
-                        <rect x="142" y="122" width="16" height="5" fill="white" rx="1"/>
+                        <rect x="144" y="126" width="12" height="4" fill="white" rx="1"/>
                     </g>
                     
                     <!-- Skeleton overlay -->
