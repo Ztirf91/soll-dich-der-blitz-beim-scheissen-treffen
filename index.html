@@ -18,6 +18,8 @@
             --storm-dark: #0a0a14;
             --storm-purple: #1a0a2e;
             --accent-blue: #00d4ff;
+            --trump-orange: #f4a460;
+            --trump-hair: #f0c040;
             --gold: #FFD700;
             --gold-dark: #b8860b;
             --gold-light: #fff8dc;
@@ -402,6 +404,21 @@
             filter: drop-shadow(0 0 20px var(--thunder-yellow)) drop-shadow(0 0 40px white);
         }
 
+        /* Hair animation when shocked */
+        .trump-hair {
+            transform-origin: center bottom;
+            filter: drop-shadow(0 4px 0 rgba(0,0,0,0.08));
+        }
+
+        .person-group.shocked .trump-hair {
+            animation: hairStandUp 0.5s ease-in-out;
+        }
+
+        @keyframes hairStandUp {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.3) translateY(-5px); }
+        }
+
         /* Mobile-specific styles */
         @media (max-width: 480px) {
             body {
@@ -544,6 +561,11 @@
                         <stop offset="58%" stop-color="#efa56c"/>
                         <stop offset="100%" stop-color="#c87955"/>
                     </radialGradient>
+                    <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffe18a"/>
+                        <stop offset="45%" stop-color="#f2c247"/>
+                        <stop offset="100%" stop-color="#bd8425"/>
+                    </linearGradient>
                     <linearGradient id="suitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#39415b"/>
                         <stop offset="45%" stop-color="#1e2438"/>
@@ -554,9 +576,6 @@
                         <stop offset="48%" stop-color="#e02b31"/>
                         <stop offset="100%" stop-color="#9b111c"/>
                     </linearGradient>
-                    <clipPath id="portraitClip">
-                        <path d="M150 65 C131 65 117 79 117 99 C114 123 122 138 137 144 Q150 149 163 144 C178 138 186 123 183 99 C183 79 169 65 150 65Z"/>
-                    </clipPath>
                 </defs>
 
                 <!-- Mar-a-Lago bathroom background -->
@@ -724,12 +743,69 @@
                     <!-- Double chin -->
                     <path d="M132 133 Q150 144 168 133 Q165 146 150 147 Q135 146 132 133Z" fill="#d88350" opacity="0.7"/>
                     
-                    <!-- Portraits switch briefly during the lightning animation -->
-                    <g id="normalFace">
-                        <image x="110" y="60" width="80" height="100" preserveAspectRatio="xMidYMid slice" href="assets/trump-rest.png" clip-path="url(#portraitClip)"/>
+                    <!-- The Hair - iconic swoopy combover -->
+                    <g class="trump-hair">
+                        <!-- Base hair -->
+                        <ellipse cx="150" cy="85" rx="37" ry="20" fill="url(#hairGradient)"/>
+                        <!-- Swoopy front part -->
+                        <path d="M116 92 Q109 76 126 69 Q148 61 175 69 Q191 77 186 94 Q174 88 150 86 Q132 86 116 92" fill="url(#hairGradient)"/>
+                        <!-- The famous swoop -->
+                        <path d="M120 90 Q112 72 140 66 Q160 62 170 69 Q156 71 146 74 Q130 78 120 90" fill="#f0c040"/>
+                        <!-- Side hair -->
+                        <ellipse cx="120" cy="101" rx="9" ry="17" fill="url(#hairGradient)"/>
+                        <ellipse cx="180" cy="101" rx="9" ry="17" fill="url(#hairGradient)"/>
+                        <!-- Back swoosh -->
+                        <path d="M175 82 Q186 80 190 92 Q186 97 180 94 Q178 87 175 82" fill="#f0c040"/>
+                        <!-- Fine strands and highlights -->
+                        <path d="M126 82 Q140 68 161 68 M124 86 Q143 74 166 72 M169 77 Q179 81 182 88 M117 91 Q119 83 125 79" stroke="#fff0b0" stroke-width="1.1" fill="none" opacity="0.6"/>
                     </g>
+                    
+                    <!-- Face - Normal -->
+                    <g id="normalFace">
+                        <!-- Narrow, hooded eyes and a heavy, furrowed brow -->
+                        <path d="M130 101 Q139 96 148 102 Q140 108 132 105Z" fill="#fff8ec"/>
+                        <path d="M152 102 Q161 96 170 101 L168 105 Q160 108 152 102Z" fill="#fff8ec"/>
+                        <ellipse cx="139" cy="102" rx="2.5" ry="3" fill="#376184"/>
+                        <ellipse cx="161" cy="102" rx="2.5" ry="3" fill="#376184"/>
+                        <circle cx="139" cy="102" r="1.2" fill="#17202b"/>
+                        <circle cx="161" cy="102" r="1.2" fill="#17202b"/>
+                        
+                        <path d="M129 98 Q138 93 148 99 M152 99 Q162 93 171 98" stroke="#9a713d" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+                        <path d="M148 96 L150 101 L152 96" fill="none" stroke="#c77c53" stroke-width="1" opacity="0.65"/>
+                        
+                        <!-- Long, broad nose with a rounded tip -->
+                        <path d="M148 105 Q146 113 143 119 Q143 123 150 124 Q157 123 157 119 Q154 113 152 105" fill="#e49a67"/>
+                        <path d="M144 120 Q150 117 156 120 Q155 125 150 125 Q145 125 144 120Z" fill="#d9875d"/>
+                        <path d="M145 122 Q147 124 149 123 M151 123 Q153 124 155 122" stroke="#a95f49" stroke-width="1" fill="none"/>
+                        
+                        <!-- Tight, pursed mouth -->
+                        <path d="M138 130 Q144 127 149 129 Q151 129 153 129 Q158 127 163 130 Q157 135 150 134 Q143 135 138 130Z" fill="#bb685d"/>
+                        <path d="M140 130 Q150 132 161 130" stroke="#753f3d" stroke-width="1.2" fill="none"/>
+                        <path d="M142 136 Q150 138 158 136" stroke="#c77a5a" stroke-width="1" fill="none" opacity="0.8"/>
+                        
+                        <path d="M130 110 Q134 112 137 111 M163 111 Q167 112 170 110" stroke="#bd7655" stroke-width="1" fill="none" opacity="0.7"/>
+                        <path d="M142 126 Q140 129 139 132 M158 126 Q160 129 161 132" stroke="#c57a56" stroke-width="0.8" fill="none" opacity="0.65"/>
+                        <circle cx="138.5" cy="101" r="0.9" fill="#fff" opacity="0.8"/>
+                        <circle cx="160.5" cy="101" r="0.9" fill="#fff" opacity="0.8"/>
+                    </g>
+                    
+                    <!-- Face - Shocked -->
                     <g id="shockedFace" opacity="0">
-                        <image x="110" y="60" width="80" height="100" preserveAspectRatio="xMidYMid slice" href="assets/trump-struck.png" clip-path="url(#portraitClip)"/>
+                        <ellipse cx="139" cy="103" rx="6" ry="8" fill="#fff8ec"/>
+                        <ellipse cx="161" cy="103" rx="6" ry="8" fill="#fff8ec"/>
+                        <circle cx="139" cy="103" r="3.3" fill="#376184"/>
+                        <circle cx="161" cy="103" r="3.3" fill="#376184"/>
+                        <circle cx="139" cy="103" r="1.7" fill="#000"/>
+                        <circle cx="161" cy="103" r="1.7" fill="#000"/>
+                        
+                        <!-- Raised eyebrows -->
+                        <path d="M129 94 Q139 88 149 96 M151 96 Q161 88 171 94" stroke="#9a713d" stroke-width="3" fill="none"/>
+                        
+                        <!-- Open mouth screaming -->
+                        <ellipse cx="150" cy="131" rx="10" ry="8" fill="#2c1810"/>
+                        <ellipse cx="150" cy="129" rx="7" ry="4" fill="#8b0000"/>
+                        <!-- Teeth -->
+                        <rect x="144" y="126" width="12" height="4" fill="white" rx="1"/>
                     </g>
                     
                     <!-- Skeleton overlay -->
