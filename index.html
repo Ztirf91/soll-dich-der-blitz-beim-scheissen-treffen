@@ -167,15 +167,24 @@
         .scene {
             position: relative;
             width: 100%;
-            max-width: 450px;
+            max-width: 520px;
             aspect-ratio: 1 / 1.1;
-            margin: 0.5rem auto;
+            margin: 0.75rem auto;
+            padding: 0.5rem;
+            border-radius: 26px;
+            background: linear-gradient(180deg, rgba(255,215,0,0.12), rgba(255,255,255,0.02));
+            box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+            border: 3px solid rgba(255,215,0,0.55);
         }
 
         /* Toilet and person SVG */
         .toilet-scene {
             width: 100%;
             height: 100%;
+            display: block;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+            shape-rendering: geometricPrecision;
+            text-rendering: geometricPrecision;
         }
 
         /* Lightning strike on person */
@@ -215,6 +224,7 @@
         /* Person shake when struck */
         .person-group {
             transform-origin: center bottom;
+            transform: translateY(6px);
         }
 
         .person-group.shocked {
@@ -397,6 +407,7 @@
         /* Hair animation when shocked */
         .trump-hair {
             transform-origin: center bottom;
+            filter: drop-shadow(0 4px 0 rgba(0,0,0,0.08));
         }
 
         .person-group.shocked .trump-hair {
@@ -545,6 +556,26 @@
                         <stop offset="50%" style="stop-color:#f5f0e0"/>
                         <stop offset="100%" style="stop-color:#ebe5d5"/>
                     </linearGradient>
+                    <radialGradient id="skinGradient" cx="38%" cy="30%" r="75%">
+                        <stop offset="0%" stop-color="#ffd39a"/>
+                        <stop offset="55%" stop-color="#f3a45f"/>
+                        <stop offset="100%" stop-color="#c96d43"/>
+                    </radialGradient>
+                    <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffe18a"/>
+                        <stop offset="45%" stop-color="#f2c247"/>
+                        <stop offset="100%" stop-color="#bd8425"/>
+                    </linearGradient>
+                    <linearGradient id="suitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#39415b"/>
+                        <stop offset="45%" stop-color="#1e2438"/>
+                        <stop offset="100%" stop-color="#0d1220"/>
+                    </linearGradient>
+                    <linearGradient id="tieGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#870b13"/>
+                        <stop offset="48%" stop-color="#e02b31"/>
+                        <stop offset="100%" stop-color="#9b111c"/>
+                    </linearGradient>
                 </defs>
 
                 <!-- Mar-a-Lago bathroom background -->
@@ -668,79 +699,91 @@
                 <!-- Trump sitting on golden toilet -->
                 <g class="person-group" id="personGroup">
                     <!-- Suit jacket -->
-                    <ellipse cx="150" cy="175" rx="35" ry="40" fill="#1a1a2e"/>
+                    <ellipse cx="150" cy="175" rx="39" ry="42" fill="url(#suitGradient)"/>
+                    <path d="M119 151 Q128 145 140 148 L150 169 L138 199 Q128 187 119 177Z" fill="#454d66" opacity="0.8"/>
+                    <path d="M181 151 Q172 145 160 148 L150 169 L162 199 Q172 187 181 177Z" fill="#111727" opacity="0.8"/>
+                    <path d="M124 183 Q130 199 143 207 M176 183 Q170 199 157 207" fill="none" stroke="#626a7e" stroke-width="1.2" opacity="0.7"/>
                     <!-- White shirt visible -->
-                    <ellipse cx="150" cy="170" rx="15" ry="30" fill="#ffffff"/>
+                    <path d="M139 145 Q150 151 161 145 L164 191 Q157 201 150 204 Q143 201 136 191Z" fill="#f6f3ea"/>
                     <!-- Famous red tie -->
-                    <polygon points="150,140 145,145 150,210 155,145" fill="#cc0000"/>
-                    <polygon points="147,210 150,220 153,210" fill="#cc0000"/>
+                    <polygon points="150,140 143,148 150,212 157,148" fill="url(#tieGradient)"/>
+                    <polygon points="145,210 150,222 155,210" fill="#8b1019"/>
+                    <path d="M145 150 L149 164 L151 164 L155 150" fill="#fff" opacity="0.22"/>
                     
                     <!-- Arms in suit -->
-                    <ellipse cx="112" cy="180" rx="10" ry="22" fill="#1a1a2e" transform="rotate(-15 112 180)"/>
-                    <ellipse cx="188" cy="180" rx="10" ry="22" fill="#1a1a2e" transform="rotate(15 188 180)"/>
+                    <ellipse cx="112" cy="180" rx="11" ry="24" fill="url(#suitGradient)" transform="rotate(-18 112 180)"/>
+                    <ellipse cx="188" cy="180" rx="11" ry="24" fill="url(#suitGradient)" transform="rotate(18 188 180)"/>
                     
-                    <!-- Hands (small hands!) -->
-                    <circle cx="105" cy="198" r="7" fill="var(--trump-orange)"/>
-                    <circle cx="195" cy="198" r="7" fill="var(--trump-orange)"/>
+                    <!-- Hands -->
+                    <circle cx="105" cy="198" r="7" fill="url(#skinGradient)"/>
+                    <circle cx="195" cy="198" r="7" fill="url(#skinGradient)"/>
                     
                     <!-- Pants -->
-                    <ellipse cx="130" cy="215" rx="18" ry="14" fill="#1a1a2e"/>
-                    <ellipse cx="170" cy="215" rx="18" ry="14" fill="#1a1a2e"/>
+                    <ellipse cx="129" cy="215" rx="20" ry="15" fill="#1d1d2a"/>
+                    <ellipse cx="171" cy="215" rx="20" ry="15" fill="#1d1d2a"/>
                     
                     <!-- Feet in dress shoes -->
-                    <ellipse cx="118" cy="258" rx="16" ry="8" fill="#111"/>
-                    <ellipse cx="182" cy="258" rx="16" ry="8" fill="#111"/>
+                    <ellipse cx="117" cy="258" rx="17" ry="8" fill="#101010"/>
+                    <ellipse cx="183" cy="258" rx="17" ry="8" fill="#101010"/>
                     
                     <!-- Shins -->
-                    <rect x="113" y="225" width="14" height="33" fill="var(--trump-orange)" rx="5"/>
-                    <rect x="173" y="225" width="14" height="33" fill="var(--trump-orange)" rx="5"/>
+                    <rect x="112" y="225" width="15" height="35" fill="url(#skinGradient)" rx="5"/>
+                    <rect x="173" y="225" width="15" height="35" fill="url(#skinGradient)" rx="5"/>
                     
                     <!-- Head - orange tinted -->
-                    <circle cx="150" cy="110" r="32" fill="var(--trump-orange)" id="head"/>
+                    <circle cx="150" cy="110" r="33" fill="url(#skinGradient)" id="head"/>
+                    <path d="M121 112 Q123 91 142 82 Q132 101 134 119 Q136 132 147 140 Q130 138 124 127Z" fill="#b95f42" opacity="0.22"/>
+                    <ellipse cx="140" cy="92" rx="8" ry="3" fill="#ffe0b0" opacity="0.3"/>
                     
                     <!-- Neck -->
-                    <rect x="140" y="135" width="20" height="15" fill="var(--trump-orange)"/>
+                    <path d="M140 132 L160 132 L160 150 Q150 157 140 150Z" fill="url(#skinGradient)"/>
                     
                     <!-- Double chin -->
-                    <ellipse cx="150" cy="138" rx="18" ry="8" fill="var(--trump-orange)"/>
+                    <path d="M132 133 Q150 144 168 133 Q165 146 150 147 Q135 146 132 133Z" fill="#d88350" opacity="0.7"/>
                     
                     <!-- The Hair - iconic swoopy combover -->
                     <g class="trump-hair">
                         <!-- Base hair -->
-                        <ellipse cx="150" cy="85" rx="35" ry="18" fill="var(--trump-hair)"/>
+                        <ellipse cx="150" cy="85" rx="37" ry="20" fill="url(#hairGradient)"/>
                         <!-- Swoopy front part -->
-                        <path d="M115 90 Q110 75 125 70 Q150 60 175 70 Q190 75 185 90 Q170 85 150 83 Q130 85 115 90" fill="var(--trump-hair)"/>
+                        <path d="M116 92 Q109 76 126 69 Q148 61 175 69 Q191 77 186 94 Q174 88 150 86 Q132 86 116 92" fill="url(#hairGradient)"/>
                         <!-- The famous swoop -->
-                        <path d="M120 88 Q115 70 140 65 Q160 62 170 68 Q155 70 145 72 Q130 75 120 88" fill="#e8b830"/>
+                        <path d="M120 90 Q112 72 140 66 Q160 62 170 69 Q156 71 146 74 Q130 78 120 90" fill="#f0c040"/>
                         <!-- Side hair -->
-                        <ellipse cx="120" cy="100" rx="8" ry="15" fill="var(--trump-hair)"/>
-                        <ellipse cx="180" cy="100" rx="8" ry="15" fill="var(--trump-hair)"/>
+                        <ellipse cx="120" cy="101" rx="9" ry="17" fill="url(#hairGradient)"/>
+                        <ellipse cx="180" cy="101" rx="9" ry="17" fill="url(#hairGradient)"/>
                         <!-- Back swoosh -->
-                        <path d="M175 80 Q185 78 188 90 Q185 95 180 92 Q178 85 175 80" fill="#e8b830"/>
+                        <path d="M175 82 Q186 80 190 92 Q186 97 180 94 Q178 87 175 82" fill="#f0c040"/>
+                        <!-- Fine strands and highlights -->
+                        <path d="M126 82 Q140 68 161 68 M124 86 Q143 74 166 72 M169 77 Q179 81 182 88 M117 91 Q119 83 125 79" stroke="#fff0b0" stroke-width="1.1" fill="none" opacity="0.6"/>
                     </g>
                     
                     <!-- Face - Normal -->
                     <g id="normalFace">
                         <!-- Eyes - small and squinty -->
-                        <ellipse cx="140" cy="105" rx="6" ry="4" fill="white"/>
-                        <ellipse cx="160" cy="105" rx="6" ry="4" fill="white"/>
-                        <circle cx="140" cy="105" r="2.5" fill="#5c8ab5"/>
-                        <circle cx="160" cy="105" r="2.5" fill="#5c8ab5"/>
+                        <ellipse cx="140" cy="105" rx="7" ry="5" fill="white"/>
+                        <ellipse cx="160" cy="105" rx="7" ry="5" fill="white"/>
+                        <circle cx="140" cy="105" r="2.8" fill="#1d4d8f"/>
+                        <circle cx="160" cy="105" r="2.8" fill="#1d4d8f"/>
                         
                         <!-- Eyebrows - expressive -->
-                        <path d="M132 98 Q140 95 148 99" stroke="#c9a030" stroke-width="3" fill="none"/>
-                        <path d="M152 99 Q160 95 168 98" stroke="#c9a030" stroke-width="3" fill="none"/>
+                        <path d="M131 98 Q139 94 148 99" stroke="#c9a030" stroke-width="3" fill="none"/>
+                        <path d="M152 99 Q160 94 169 98" stroke="#c9a030" stroke-width="3" fill="none"/>
                         
                         <!-- Nose -->
-                        <ellipse cx="150" cy="115" rx="5" ry="7" fill="#e89850"/>
+                        <ellipse cx="150" cy="116" rx="5.5" ry="7.5" fill="#e89a53"/>
                         
                         <!-- Mouth - pursed lips -->
-                        <ellipse cx="150" cy="128" rx="10" ry="4" fill="#d4856a"/>
-                        <path d="M142 128 Q150 132 158 128" stroke="#c07060" stroke-width="1" fill="none"/>
+                        <ellipse cx="150" cy="128" rx="10.5" ry="4.2" fill="#d77a68"/>
+                        <path d="M142 128 Q150 133 158 128" stroke="#bb5f52" stroke-width="1.3" fill="none"/>
                         
-                        <!-- White around eyes (tan lines from goggles) -->
-                        <ellipse cx="140" cy="105" rx="10" ry="7" fill="none" stroke="#ffd0a0" stroke-width="2" opacity="0.4"/>
-                        <ellipse cx="160" cy="105" rx="10" ry="7" fill="none" stroke="#ffd0a0" stroke-width="2" opacity="0.4"/>
+                        <!-- White around eyes -->
+                        <ellipse cx="140" cy="105" rx="10.5" ry="7.5" fill="none" stroke="#ffd0a0" stroke-width="2" opacity="0.45"/>
+                        <ellipse cx="160" cy="105" rx="10.5" ry="7.5" fill="none" stroke="#ffd0a0" stroke-width="2" opacity="0.45"/>
+                        <path d="M132 115 Q136 118 140 117 M160 117 Q164 118 168 115" stroke="#c87950" stroke-width="1" fill="none" opacity="0.65"/>
+                        <path d="M144 121 Q150 123 156 121" stroke="#f6c18d" stroke-width="1" fill="none" opacity="0.8"/>
+                        <circle cx="139" cy="104" r="1" fill="#fff" opacity="0.8"/>
+                        <circle cx="159" cy="104" r="1" fill="#fff" opacity="0.8"/>
                     </g>
                     
                     <!-- Face - Shocked -->
